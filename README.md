@@ -1,1 +1,2 @@
-# Progetto-JavaScript-Advanced-di-Simone-Coppola
+In questo progetto è possibile scegliere una categoria di libri che si desidera leggere, verrà mostrata una lista di libri di quella categoria e successivamente è possibile controllare i dettagli cliccando sull'apposito bottone. Ricliccando sullo stesso bottone i dettagli verranno tolti.
+<img width="1920" height="928" alt="Owly" src="https://github.com/user-attachments/assets/3f25fad9-b9d5-44bf-b44c-9612cac19c1b" />
