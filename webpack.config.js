@@ -1,6 +1,5 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   entry: './src/index.js',
@@ -10,13 +9,12 @@ module.exports = {
     clean: true,
     publicPath: '/Progetto-JavaScript-Advanced-di-Simone-Coppola/'
   },
-  mode: 'development',
-  devtool: 'inline-source-map',
+  mode: 'production', // Cambia a production per il deploy
   module: {
     rules: [
       {
         test: /\.css$/i,
-        use: ['style-loader', 'css-loader']
+        use: ['style-loader', 'css-loader'] // Mantieni solo style-loader
       },
       {
         test: /\.(png|jpg|jpeg|gif|svg)$/i,
@@ -28,27 +26,11 @@ module.exports = {
     ]
   },
   plugins: [
-    new MiniCssExtractPlugin({
-      filename: 'style.css',
-    }),
+    // Rimuovi MiniCssExtractPlugin
     new HtmlWebpackPlugin({
       template: './index.html',
       filename: 'index.html',
       favicon: './src/assets/IMG/logo.png'
     })
-  ],
-  devServer: {
-  static: './dist',
-  port: 8080,
-  open: true,
-  proxy: [
-    {
-      context: ['/api'],
-      target: 'https://openlibrary.org',
-      changeOrigin: true,
-      secure: false,
-      pathRewrite: { '^/api': '' },
-    }
   ]
-}
 };
