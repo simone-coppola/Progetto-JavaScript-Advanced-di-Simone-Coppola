@@ -5,10 +5,10 @@ module.exports = {
   entry: './src/index.js',
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist'),
-    clean: true,
+    path: path.resolve(__dirname, '.'), 
+    clean: false, 
     publicPath: '/Progetto-JavaScript-Advanced-di-Simone-Coppola/'
-  },
+},
   mode: 'production', // Cambia a production per il deploy
   module: {
     rules: [
