@@ -1,19 +1,3 @@
-import axios from "axios";
-import './style.css';
-import logo from './assets/IMG/logo.png';
-
-const logoImg = document.querySelector('.title img');
-logoImg.src = logo;
-
-import favicon from './assets/IMG/logo.png';
-const link = document.createElement('link');
-link.rel = 'icon';
-link.href = favicon;
-document.head.appendChild(link);
-
-
-
-
 function createElementBase(tag) {
     return document.createElement(tag);
 }
@@ -61,9 +45,15 @@ searchButton.addEventListener('click', async function searchBooks() {
 
     try {
         
-        const response = await axios.get(`/api/subjects/${encodeURIComponent(category)}.json`);
-        const data = response.data;
+        const response = await fetch(`https://openlibrary.org/subjects/${encodeURIComponent(category)}.json`);
+        
+        if (!response.ok) {
+            throw new Error(response.statusText);
+        }
+        
+        const data = await response.json();
         booksList = data.works;
+
 
         if (booksList.length === 0) {
             loadingBooksParagraph.textContent = 'La ricerca non ha trovato corrispondenze. Prova con una categoria diversa.';
@@ -114,8 +104,13 @@ function showBooks() {
             }
 
             try {
-                const response = await axios.get(`/api${key}.json`);
-                const bookDetails = response.data;
+                const response = await fetch(`https://openlibrary.org${key}.json`);
+                
+                if (!response.ok) {
+                    throw new Error(response.statusText);
+                }
+
+                const bookDetails = await response.json();
 
                 const descriptionText = bookDetails.description
                     ? (typeof bookDetails.description === "string"
