@@ -1,7 +1,7 @@
 import axios from 'axios';
 import './style.css';
 import logo from './assets/IMG/logo.png';
-import axios from 'https://cdn.jsdelivr.net/npm/axios@1.6.0/+esm';
+import axios from 'axios';
 
 const logoImg = document.querySelector('.title img');
 logoImg.src = logo;
