@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: 'index.js',
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, '.'), 
@@ -20,7 +20,7 @@ module.exports = {
         test: /\.(png|jpg|jpeg|gif|svg)$/i,
         type: 'asset/resource',
         generator: {
-          filename: 'assets/IMG/[name][ext]'
+          filename: 'assets/IMG/logo.png'
         }
       }
     ]
