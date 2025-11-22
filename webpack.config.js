@@ -9,12 +9,12 @@ module.exports = {
     clean: false, 
     publicPath: '/Progetto-JavaScript-Advanced-di-Simone-Coppola/'
 },
-  mode: 'production', // Cambia a production per il deploy
+  mode: 'production',
   module: {
     rules: [
       {
         test: /\.css$/i,
-        use: ['style-loader', 'css-loader'] // Mantieni solo style-loader
+        use: ['style-loader', 'css-loader'] 
       },
       {
         test: /\.(png|jpg|jpeg|gif|svg)$/i,
@@ -26,7 +26,6 @@ module.exports = {
     ]
   },
   plugins: [
-    // Rimuovi MiniCssExtractPlugin
     new HtmlWebpackPlugin({
       template: './index.html',
       filename: 'index.html',

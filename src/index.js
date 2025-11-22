@@ -1,4 +1,3 @@
-import axios from 'axios';
 import './style.css';
 import logo from './assets/IMG/logo.png';
 
