@@ -7,7 +7,6 @@ module.exports = {
     filename: 'bundle.js',
     path: path.resolve(__dirname, '.'), 
     clean: false, 
-    publicPath: '/Progetto-JavaScript-Advanced-di-Simone-Coppola/'
 },
   mode: 'production',
   module: {
