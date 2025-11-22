@@ -1,4 +1,4 @@
-import axios from "https://cdn.jsdelivr.net/npm/axios@1.6.2/+esm";
+import axios from "axios";
 import './style.css';
 import logo from './assets/IMG/logo.png';
 
