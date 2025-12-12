@@ -63,13 +63,13 @@ searchButton.addEventListener('click', async function searchBooks() {
             loadingBooksParagraph.textContent = '';
         }
     } catch (error) {
-        showError('Errore durante la ricerca: ' + (error.response ? error.response.statusText : error.message));
+        showError('Errore durante la ricerca: ' + (error.message ? error.message.statusText : error.message));
     } finally {
         searchInput.value = '';
     }
 });
 
-
+        
 function showBooks() {
     booksContainer.innerHTML = '';
 
@@ -94,12 +94,12 @@ function showBooks() {
         appendChildren(bookCard, bookTitle, bookAuthor, detailsButton);
         booksContainer.appendChild(bookCard);
 
-        
-        detailsButton.addEventListener('click', async function () {
 
+        async function toggleBookDetails() {
             const existingDescription = bookCard.querySelector('.book-description');
             if (existingDescription) {
                 existingDescription.remove();
+                detailsButton.removeEventListener('click', toggleBookDetails);
                 return;
             }
 
@@ -124,11 +124,14 @@ function showBooks() {
 
                 bookCard.appendChild(descriptionElement);
             } catch (error) {
-                showError('Errore durante il recupero dei dettagli: ' + (error.response ? error.response.statusText : error.message));
+                showError('Errore durante il recupero dei dettagli: ' + (error.message ? error.message.statusText : error.message));
             }
-        });
+        }
+
+        detailsButton.addEventListener('click', toggleBookDetails);
     });
 }
+
 
 
 function showError(message) {

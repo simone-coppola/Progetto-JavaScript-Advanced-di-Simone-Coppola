@@ -5,7 +5,7 @@ module.exports = {
   entry: './src/index.js',
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, '.'), 
+    path: path.resolve(__dirname, 'dist'), 
     clean: false, 
 },
   mode: 'production',
@@ -19,7 +19,7 @@ module.exports = {
         test: /\.(png|jpg|jpeg|gif|svg)$/i,
         type: 'asset/resource',
         generator: {
-          filename: 'assets/IMG/logo.png'
+          filename: 'assets/img/[name][hash][ext]'
         }
       }
     ]
