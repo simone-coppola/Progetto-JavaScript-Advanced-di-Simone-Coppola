@@ -97,11 +97,13 @@ function showBooks() {
 
         async function toggleBookDetails() {
             const existingDescription = bookCard.querySelector('.book-description');
+            
             if (existingDescription) {
                 existingDescription.remove();
-                detailsButton.removeEventListener('click', toggleBookDetails);
-                return;
+               return;
             }
+
+            detailsButton.disabled = true;
 
             try {
                 const response = await fetch(`https://openlibrary.org${key}.json`);
@@ -125,8 +127,11 @@ function showBooks() {
                 bookCard.appendChild(descriptionElement);
             } catch (error) {
                 showError('Errore durante il recupero dei dettagli: ' + (error.message ? error.message.statusText : error.message));
+            }finally {
+                detailsButton.disabled = false;
             }
         }
+        
 
         detailsButton.addEventListener('click', toggleBookDetails);
     });
